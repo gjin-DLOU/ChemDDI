@@ -29,9 +29,9 @@ class AttentionFusion_auto(nn.Module):
         mid_emb = torch.cat((input1, input2), 1).float()
         return F.relu(self.linear(mid_emb))
 
-class MRCGNN(nn.Module):
+class Chem(nn.Module):
     def __init__(self, feature, hidden1, hidden2, hidden3,dropout, type_n):
-        super(MRCGNN, self).__init__()
+        super(Chem, self).__init__()
         self.encoder_o1 = RGCNConv(feature, hidden1, num_relations=type_n)
         self.encoder_o2 = RGCNConv(hidden1, hidden2*2, num_relations=type_n)
         self.encoder_o4 = TransformerConv(feature, hidden2, heads=4)
@@ -106,5 +106,6 @@ class MRCGNN(nn.Module):
 
         for layer in self.mlp:
             concatenate = layer(concatenate)
+
 
         return concatenate, x2_o, loss
