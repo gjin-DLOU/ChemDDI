@@ -3,7 +3,7 @@ import random
 import torch
 import numpy as np
 from torch.optim import Adam
-from layer import MRCGNN
+from layer import Chem
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
@@ -17,7 +17,7 @@ def set_random_seed(seed):
 set_random_seed(1)
 
 def Create_model(args):
-    model = MRCGNN(
+    model = Chem(
         feature=args.dimensions,
         hidden1=args.hidden1,
         hidden2=args.hidden2,
@@ -26,4 +26,5 @@ def Create_model(args):
         type_n=args.type_number
         )
     optimizer = Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+
     return model, optimizer
