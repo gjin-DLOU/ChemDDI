@@ -1,5 +1,3 @@
-# MRCGN
-(The initial features in the code data were extracted using a distillation-based methodology, as detailed in the repository: https://github.com/HongxinXiang/IEM.git)
 # Abstract
 Predicting drug–drug interaction (DDI) events is critical for ensuring patient safety, optimizing
 therapeutic efficacy, and advancing drug discovery. Deep learning–based models have recently
